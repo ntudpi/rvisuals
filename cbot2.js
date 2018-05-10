@@ -22,12 +22,11 @@ function bot() {
 function timedQuestion() {
     output.innerHTML = question;
 }
-//push enter key (using jquery), to run bot function.
-jQuery( document ).ready(function( $ ) {
-$(document).keypress(function(e) {
-  if (e.which == 13) {
-    bot();																						// run bot function when enter key pressed
-    questionNum++;																		// increase questionNum count by 1
+document.addEventListener("keydown", keyDownTextField, false);
+function keyDownTextField(e) {
+var keyCode = e.keyCode;
+  if(keyCode==13) {
+  	bot();
+		questionNum++;
   }
-});
-});
+}
